@@ -30,6 +30,7 @@
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 0.5; //user needs to press for half a second.
     [self.mapa addGestureRecognizer:lpgr];
+    
 }
 
 //Zoom
