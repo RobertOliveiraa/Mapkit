@@ -51,7 +51,7 @@
  //add code here for annotation
  
  MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
- point.coordinate = latLong;
+ point.coordinate = point.coordinate;
  point.title = @"Where am I?";
  point.subtitle = @"I'm here!!!";
  
@@ -82,9 +82,24 @@
     //for (id annotation in self.mapa.annotations) {
     //  [self.mapa removeAnnotation:annotation];
     //}
+     //UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //[customAnnotationView setRightCalloutAccessoryView: rightButton];
+    
+    NSLog(@"latitude= %f longitude = %f",touchMapCoordinate.latitude,touchMapCoordinate.longitude);
     [self.mapa addAnnotation:point];
+     
+   
+    
     // [count self.point];
 }
+
+
+-(void)mapa:(MKMapView *)mapa annotationView:(MKAnnotationView *) view calloutAccessoryControlTapped:(UIControl *) control
+{
+  
+    NSLog(@"tapped");
+}
+
 
 
 @end
