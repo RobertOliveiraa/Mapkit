@@ -14,6 +14,8 @@
 		95EC9F281B00DFF00038D1ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EC9F271B00DFF00038D1ED /* Images.xcassets */; };
 		95EC9F2B1B00DFF00038D1ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EC9F291B00DFF00038D1ED /* LaunchScreen.xib */; };
 		95EC9F371B00DFF00038D1ED /* MapKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F361B00DFF00038D1ED /* MapKitTests.m */; };
+		95EC9F411B00E0480038D1ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EC9F401B00E0480038D1ED /* CoreLocation.framework */; };
+		95EC9F431B00E04F0038D1ED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EC9F421B00E04F0038D1ED /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		95EC9F301B00DFF00038D1ED /* MapKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EC9F351B00DFF00038D1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EC9F361B00DFF00038D1ED /* MapKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapKitTests.m; sourceTree = "<group>"; };
+		95EC9F401B00E0480038D1ED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		95EC9F421B00E04F0038D1ED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95EC9F431B00E04F0038D1ED /* MapKit.framework in Frameworks */,
+				95EC9F411B00E0480038D1ED /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,8 @@
 		95EC9F0E1B00DFF00038D1ED = {
 			isa = PBXGroup;
 			children = (
+				95EC9F421B00E04F0038D1ED /* MapKit.framework */,
+				95EC9F401B00E0480038D1ED /* CoreLocation.framework */,
 				95EC9F191B00DFF00038D1ED /* MapKit */,
 				95EC9F331B00DFF00038D1ED /* MapKitTests */,
 				95EC9F181B00DFF00038D1ED /* Products */,
@@ -168,6 +176,11 @@
 				TargetAttributes = {
 					95EC9F161B00DFF00038D1ED = {
 						CreatedOnToolsVersion = 6.3.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					95EC9F2F1B00DFF00038D1ED = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -416,6 +429,7 @@
 				95EC9F3C1B00DFF00038D1ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95EC9F3D1B00DFF00038D1ED /* Build configuration list for PBXNativeTarget "MapKitTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +438,7 @@
 				95EC9F3F1B00DFF00038D1ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

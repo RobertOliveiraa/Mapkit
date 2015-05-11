@@ -2,8 +2,8 @@
 //  ViewController.m
 //  MapKit
 //
-//  Created by Robert Pinto de Oliveira on 11/05/15.
-//  Copyright (c) 2015 bepid fucapi. All rights reserved.
+//  Created by Andrew Gama Branches on 07/05/15.
+//  Copyright (c) 2015 Andrew Gama Branches. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -14,14 +14,76 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    //localizacao
+    self.mapa.showsUserLocation = YES;
+    
+    [self.locationManager requestWhenInUseAuthorization];
+    //[self.locationManager requestAlwaysAuthorization];
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 0.5; //user needs to press for half a second.
+    [self.mapa addGestureRecognizer:lpgr];
+}
+
+//Zoom
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300);
+    [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
+ {
+ CGPoint pt = [[touches anyObject]locationInView:self.mapa];
+ CLLocationCoordinate2D latLong = [self.mapa convertPoint:pt toCoordinateFromView:self.mapa];
+ //add code here for annotation
+ 
+ MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+ point.coordinate = latLong;
+ point.title = @"Where am I?";
+ point.subtitle = @"I'm here!!!";
+ 
+ [self.mapa addAnnotation:point];
+ 
+ NSLog(@"latitude= %f longitude = %f",latLong.latitude,latLong.longitude);
+ //[self showMainMenu];
+ }*/
+- (IBAction)salvar:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)cancelar:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapa];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapa convertPoint:touchPoint toCoordinateFromView:self.mapa];
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = touchMapCoordinate;
+    point.title = @"Where am I?";
+    point.subtitle = @"I'm here!!!";
+    //for (id annotation in self.mapa.annotations) {
+    //  [self.mapa removeAnnotation:annotation];
+    //}
+    [self.mapa addAnnotation:point];
+    // [count self.point];
+}
+
 
 @end
