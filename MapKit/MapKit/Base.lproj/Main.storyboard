@@ -23,6 +23,17 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="aT8-W7-dT6"/>
                                 </connections>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HkQ-ZG-WSJ">
+                                <rect key="frame" x="16" y="586" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satallite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Noj-fW-nZB"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
