@@ -7,7 +7,7 @@
         <!--Mapa-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Mapa" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="Mapa" id="vXZ-lx-hvc" customClass="MapKitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -56,10 +56,29 @@
             </objects>
             <point key="canvasLocation" x="1141.5" y="335.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Lmz-Sh-W26">
+            <objects>
+                <viewController id="zwd-I4-JlK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Fy-6S-ELP"/>
+                        <viewControllerLayoutGuide type="bottom" id="8jD-KZ-5MM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9G5-77-reX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yOn-A7-Tp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141.5" y="1074.5"/>
+        </scene>
         <!--Item-->
         <scene sceneID="wWP-7F-ufc">
             <objects>
-                <viewController id="YuO-ZV-oKZ" sceneMemberID="viewController">
+                <viewController id="YuO-ZV-oKZ" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O0Z-gw-v10"/>
                         <viewControllerLayoutGuide type="bottom" id="gqn-da-4RJ"/>
@@ -69,35 +88,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cOj-ys-AVd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="534"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="Omm-wH-Izb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell" textLabel="O6L-1E-dGD" detailTextLabel="6Rj-2Y-ral" rowHeight="55" style="IBUITableViewCellStyleValue1" id="Omm-wH-Izb" customClass="CustomCellContacts">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Omm-wH-Izb" id="WIR-xj-Alt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWC-sL-RO8">
-                                                    <rect key="frame" x="85" y="8" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O6L-1E-dGD">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0DE-Ob-hPL">
-                                                    <rect key="frame" x="85" y="30" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Rj-2Y-ral">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wio-kk-dDQ">
-                                                    <rect key="frame" x="8" y="0.0" width="69" height="51"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YuO-ZV-oKZ" id="L7t-E3-bYM"/>
+                                    <outlet property="delegate" destination="YuO-ZV-oKZ" id="13X-xY-DRz"/>
+                                </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Cliente" translatesAutoresizingMaskIntoConstraints="NO" id="OUq-nH-g3C">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -111,8 +135,20 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="bsS-i2-e4U"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="Tableview" destination="cOj-ys-AVd" id="uNG-vE-cXp"/>
+                        <outlet property="searchDisplayController" destination="dVs-YQ-MjO" id="joL-Fs-Aa7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUu-Ed-9aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="dVs-YQ-MjO">
+                    <connections>
+                        <outlet property="delegate" destination="YuO-ZV-oKZ" id="rfN-Rd-JHO"/>
+                        <outlet property="searchContentsController" destination="YuO-ZV-oKZ" id="pGe-vn-NP8"/>
+                        <outlet property="searchResultsDataSource" destination="YuO-ZV-oKZ" id="aXC-EX-i4M"/>
+                        <outlet property="searchResultsDelegate" destination="YuO-ZV-oKZ" id="UHI-LX-nTy"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1597.5" y="335.5"/>
         </scene>
