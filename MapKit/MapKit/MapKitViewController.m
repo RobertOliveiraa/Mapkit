@@ -10,8 +10,6 @@
 
 @interface MapKitViewController ()
 
-
-
 @end
 
 @implementation MapKitViewController
@@ -19,15 +17,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
+    
     //localizacao
     self.mapa.showsUserLocation = YES;
-    
     [self.locationManager requestWhenInUseAuthorization];
+    
+    //Por pino no mapa
+    //for (int i = 0; i < results.count; i++) {
+    //adiciona um pin em uma certa latitude e longitude.
+    CLLocationCoordinate2D annotationCoord;
+
+    //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
+    //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
+    annotationCoord.latitude = 50.44444;
+    annotationCoord.longitude = -3.44545;
+    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+    annotationPoint.coordinate = annotationCoord;
+    //annotationPoint.title = self.title;
+    //annotationPoint.subtitle = self.subtitle;
+
+    [self.mapa addAnnotation:annotationPoint];
+        //    }
+    
     //[self.locationManager requestAlwaysAuthorization];
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 0.5; //user needs to press for half a second.
@@ -40,6 +57,8 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300);
     [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
     
+    NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.latitude);
+    NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.longitude);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,13 +81,13 @@
  NSLog(@"latitude= %f longitude = %f",latLong.latitude,latLong.longitude);
  //[self showMainMenu];
  }*/
-- (IBAction)salvar:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)cancelar:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (IBAction)salvar:(id)sender {
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+//
+//- (IBAction)cancelar:(id)sender {
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer {

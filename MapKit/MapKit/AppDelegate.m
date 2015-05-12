@@ -1,25 +1,22 @@
 //
 //  AppDelegate.m
-//  CoreDataTestbed
+//  Teste
 //
-//  Created by Vilar da Camara Neto on 15-05-05.
-//  Copyright (c) 2015 Vilar da Camara Neto. All rights reserved.
+//  Created by EDILBERTO DA SILVA RAMOS JUNIOR on 12/05/15.
+//  Copyright (c) 2015 EDILBERTO DA SILVA RAMOS JUNIOR. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
-
+#import "MapKitStore.h"
 @interface AppDelegate ()
 
 @end
-
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+    [[MapKitStore sharedStore] setManagedObjectContext:self.managedObjectContext];
     return YES;
 }
 
@@ -54,7 +51,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.vilarneto.CoreDataTestbed" in the application's documents directory.
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "FUCAPI2015.Teste" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
@@ -63,8 +60,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MapKit" withExtension:@"mom"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MapKit" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -78,14 +74,10 @@
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MapKit.sql"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MapKit.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    
-    //faz alteracoes de versoes sem precisar desinstalar... muda automaticamente.
-    NSDictionary *options= @{NSMigratePersistentStoresAutomaticallyOption:@(YES),NSInferMappingModelAutomaticallyOption : @(YES)};
-    
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";

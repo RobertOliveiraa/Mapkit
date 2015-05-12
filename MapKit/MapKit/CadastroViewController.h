@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CadastroEditViewController.h"
+#import "MapKit.h"
 
 @interface CadastroViewController : UIViewController <UINavigationControllerDelegate>
 
-@property (strong, nonatomic) CadastroEditViewController *cod;
+@property (strong, nonatomic) MapKit *cod;
 @property (weak, nonatomic) IBOutlet UITextField *CadNome;
 @property (weak, nonatomic) IBOutlet UITextField *CadTelefone;
 

@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2474F29C1B02864300CBB288 /* MapKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2474F29A1B02864300CBB288 /* MapKit.xcdatamodeld */; };
+		2474F29F1B0286A600CBB288 /* MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474F29E1B0286A600CBB288 /* MapKit.m */; };
 		24E5490D1B018D1C005F93F1 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E5490C1B018D1C005F93F1 /* ContactViewController.m */; };
-		95A55BF61B012EDC00C9EFAF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */; };
 		95A55BFD1B019CAC00C9EFAF /* CadastroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BFC1B019CAC00C9EFAF /* CadastroViewController.m */; };
-		95A55C001B019F5F00C9EFAF /* BPDCadastroEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BFF1B019F5F00C9EFAF /* BPDCadastroEditViewController.m */; };
-		95A55C031B01A41600C9EFAF /* CadastroStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55C021B01A41600C9EFAF /* CadastroStoreViewController.m */; };
-		95A55C061B01AE2100C9EFAF /* CadastroEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55C051B01AE2100C9EFAF /* CadastroEditViewController.m */; };
+		95A55C031B01A41600C9EFAF /* MapKitStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55C021B01A41600C9EFAF /* MapKitStore.m */; };
 		95EC9F1D1B00DFF00038D1ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F1C1B00DFF00038D1ED /* main.m */; };
 		95EC9F201B00DFF00038D1ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F1F1B00DFF00038D1ED /* AppDelegate.m */; };
 		95EC9F231B00DFF00038D1ED /* MapKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F221B00DFF00038D1ED /* MapKitViewController.m */; };
@@ -35,18 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2474F29B1B02864300CBB288 /* MapKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapKit.xcdatamodel; sourceTree = "<group>"; };
+		2474F29D1B0286A600CBB288 /* MapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapKit.h; sourceTree = "<group>"; };
+		2474F29E1B0286A600CBB288 /* MapKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapKit.m; sourceTree = "<group>"; };
 		24E5490B1B018D1C005F93F1 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		24E5490C1B018D1C005F93F1 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
-		95A55BF51B012EDC00C9EFAF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		95A55BFB1B019CAC00C9EFAF /* CadastroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroViewController.h; sourceTree = "<group>"; };
 		95A55BFC1B019CAC00C9EFAF /* CadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroViewController.m; sourceTree = "<group>"; };
-		95A55BFE1B019F5F00C9EFAF /* BPDCadastroEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPDCadastroEditViewController.h; sourceTree = "<group>"; };
-		95A55BFF1B019F5F00C9EFAF /* BPDCadastroEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPDCadastroEditViewController.m; sourceTree = "<group>"; };
-		95A55C011B01A41600C9EFAF /* CadastroStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroStoreViewController.h; sourceTree = "<group>"; };
-		95A55C021B01A41600C9EFAF /* CadastroStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroStoreViewController.m; sourceTree = "<group>"; };
-		95A55C041B01AE2100C9EFAF /* CadastroEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroEditViewController.h; sourceTree = "<group>"; };
-		95A55C051B01AE2100C9EFAF /* CadastroEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroEditViewController.m; sourceTree = "<group>"; };
-		95A55C071B01B39E00C9EFAF /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		95A55C011B01A41600C9EFAF /* MapKitStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapKitStore.h; sourceTree = "<group>"; };
+		95A55C021B01A41600C9EFAF /* MapKitStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapKitStore.m; sourceTree = "<group>"; };
 		95EC9F171B00DFF00038D1ED /* MapKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EC9F1B1B00DFF00038D1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EC9F1C1B00DFF00038D1ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,14 +119,12 @@
 				24E5490C1B018D1C005F93F1 /* ContactViewController.m */,
 				95A55BFB1B019CAC00C9EFAF /* CadastroViewController.h */,
 				95A55BFC1B019CAC00C9EFAF /* CadastroViewController.m */,
-				95A55C011B01A41600C9EFAF /* CadastroStoreViewController.h */,
-				95A55C021B01A41600C9EFAF /* CadastroStoreViewController.m */,
-				95A55BFE1B019F5F00C9EFAF /* BPDCadastroEditViewController.h */,
-				95A55BFF1B019F5F00C9EFAF /* BPDCadastroEditViewController.m */,
+				95A55C011B01A41600C9EFAF /* MapKitStore.h */,
+				95A55C021B01A41600C9EFAF /* MapKitStore.m */,
+				2474F29D1B0286A600CBB288 /* MapKit.h */,
+				2474F29E1B0286A600CBB288 /* MapKit.m */,
 				24E549111B019265005F93F1 /* View */,
-				95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */,
-				95A55C041B01AE2100C9EFAF /* CadastroEditViewController.h */,
-				95A55C051B01AE2100C9EFAF /* CadastroEditViewController.m */,
+				2474F29A1B02864300CBB288 /* MapKit.xcdatamodeld */,
 				95EC9F271B00DFF00038D1ED /* Images.xcassets */,
 				95EC9F291B00DFF00038D1ED /* LaunchScreen.xib */,
 				95EC9F1A1B00DFF00038D1ED /* Supporting Files */,
@@ -269,15 +263,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95A55C001B019F5F00C9EFAF /* BPDCadastroEditViewController.m in Sources */,
 				95EC9F231B00DFF00038D1ED /* MapKitViewController.m in Sources */,
+				2474F29C1B02864300CBB288 /* MapKit.xcdatamodeld in Sources */,
 				95A55BFD1B019CAC00C9EFAF /* CadastroViewController.m in Sources */,
+				2474F29F1B0286A600CBB288 /* MapKit.m in Sources */,
 				24E5490D1B018D1C005F93F1 /* ContactViewController.m in Sources */,
 				95EC9F201B00DFF00038D1ED /* AppDelegate.m in Sources */,
-				95A55C031B01A41600C9EFAF /* CadastroStoreViewController.m in Sources */,
-				95A55C061B01AE2100C9EFAF /* CadastroEditViewController.m in Sources */,
+				95A55C031B01A41600C9EFAF /* MapKitStore.m in Sources */,
 				95EC9F1D1B00DFF00038D1ED /* main.m in Sources */,
-				95A55BF61B012EDC00C9EFAF /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,14 +481,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */ = {
+		2474F29A1B02864300CBB288 /* MapKit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				95A55C071B01B39E00C9EFAF /* Model 2.xcdatamodel */,
-				95A55BF51B012EDC00C9EFAF /* Model.xcdatamodel */,
+				2474F29B1B02864300CBB288 /* MapKit.xcdatamodel */,
 			);
-			currentVersion = 95A55C071B01B39E00C9EFAF /* Model 2.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = 2474F29B1B02864300CBB288 /* MapKit.xcdatamodel */;
+			path = MapKit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

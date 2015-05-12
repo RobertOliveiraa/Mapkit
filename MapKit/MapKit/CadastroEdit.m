@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 bepid fucapi. All rights reserved.
 //
 
-#import "CadastroEditViewController.h"
+#import "CadastroEdit.h"
 
 
-@implementation CadastroEditViewController
+@implementation CadastroEdit
 
 @dynamic id;
 @dynamic name;

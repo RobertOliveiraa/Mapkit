@@ -7,9 +7,9 @@
 //
 
 #import "CadastroViewController.h"
-#import "CadastroStoreViewController.h"
+#import "MapKitStore.h"
 
-@interface CadastroViewController ()
+@interface CadastroViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -20,31 +20,26 @@
     // Do any additional setup after loading the view.
     self.CadNome.text = self.cod.name;
     self.CadTelefone.text = self.cod.telefone;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    tap.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tap];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"\n\n-----%lu",(unsigned long)[[[MapKitStore sharedStore] gatAllContacts] count]);
+    return [[[MapKitStore sharedStore] gatAllContacts] count];
+    ;
 }
-- (void)dismissKeyboard {
-    [self.CadNome resignFirstResponder];
-    [self.CadTelefone resignFirstResponder];
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    MapKit *teste = [[[MapKitStore sharedStore] gatAllContacts] objectAtIndex:indexPath.row];
+    cell.textLabel.text = teste.name;
+    cell.detailTextLabel.text = teste.telefone;
+    return cell;
 }
+
 - (IBAction)saveButtonClicked:(id)sender {
-    if (!self.cod) {
-        self.cod = [[CadastroStoreViewController sharedStore] createCadastroEditWithCode:self.CadNome.text andtelefone:self.CadTelefone.text];
-    } else {
-        self.cod.name = self.CadNome.text;
-        self.cod.telefone = self.CadTelefone.text;
-        
-    }
-    
-    [[CadastroStoreViewController sharedStore] saveChanges];
-    
+    [[MapKitStore sharedStore]
+     createUnidadeFederativaWithCode:self.CadTelefone.text
+     andName:self.CadNome.text];
     [self.navigationController popViewControllerAnimated:YES];
 }
 /*
