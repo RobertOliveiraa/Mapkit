@@ -44,7 +44,7 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"CadastroEditViewController";
 
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"Singleton"
-                                   reason:@"Use +[BPDUnidadeFederativaStore sharedStore]"
+                                   reason:@"Use +[CadastroStoreViewController sharedStore]"
                                  userInfo:nil];
 }
 
@@ -69,11 +69,11 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"CadastroEditViewController";
 - (CadastroEditViewController *)createCadastoEditWithCode:(NSString *)name andtelefone:(NSString *)telefone
 {
     CadastroEditViewController *cod = [NSEntityDescription
-                                insertNewObjectForEntityForName:DATA_MODEL_ENTITY_NAME
+                                insertNewObjectForEntityForName:@"CadastroEditViewController"
                                 inManagedObjectContext:self.managedObjectContext];
     
     cod.id = [[[NSUUID alloc] init] UUIDString];
-    cod.nome = name;
+    cod.name = name;
     cod.telefone = telefone;
     
     NSError *error;
@@ -103,7 +103,7 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"CadastroEditViewController";
         [fetchRequest setFetchBatchSize:20];
         
         // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nome" ascending:YES];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"cod" ascending:YES];
         NSArray *sortDescriptors = @[sortDescriptor];
         
         [fetchRequest setSortDescriptors:sortDescriptors];
