@@ -10,7 +10,7 @@
 
 @interface ContactViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *Tableview;
-
+@property NSMutableArray *arrayContacts;
 @end
 
 @implementation ContactViewController
@@ -18,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initProperties];
+}
+
+-(void)initProperties{
+    self.arrayContacts = [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"3",@"4",@"5",@"6"]];
 }
 
 - (void)didReceiveMemoryWarning {
