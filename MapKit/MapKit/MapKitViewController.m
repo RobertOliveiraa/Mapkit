@@ -6,13 +6,15 @@
 //  Copyright (c) 2015 Andrew Gama Branches. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MapKitViewController.h"
 
-@interface ViewController ()
+@interface MapKitViewController ()
+
+
 
 @end
 
-@implementation ViewController
+@implementation MapKitViewController
 
 
 - (void)viewDidLoad {

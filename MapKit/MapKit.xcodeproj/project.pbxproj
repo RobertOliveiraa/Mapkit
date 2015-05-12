@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24E5490D1B018D1C005F93F1 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E5490C1B018D1C005F93F1 /* ContactViewController.m */; };
+		24E549101B018FFA005F93F1 /* CustomCellContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E5490F1B018FFA005F93F1 /* CustomCellContacts.m */; };
 		95A55BF61B012EDC00C9EFAF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */; };
 		95A55BFA1B01334800C9EFAF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BF91B01334800C9EFAF /* TableViewController.m */; };
 		95EC9F1D1B00DFF00038D1ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F1C1B00DFF00038D1ED /* main.m */; };
 		95EC9F201B00DFF00038D1ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F1F1B00DFF00038D1ED /* AppDelegate.m */; };
-		95EC9F231B00DFF00038D1ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F221B00DFF00038D1ED /* ViewController.m */; };
+		95EC9F231B00DFF00038D1ED /* MapKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F221B00DFF00038D1ED /* MapKitViewController.m */; };
 		95EC9F261B00DFF00038D1ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EC9F241B00DFF00038D1ED /* Main.storyboard */; };
 		95EC9F281B00DFF00038D1ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EC9F271B00DFF00038D1ED /* Images.xcassets */; };
 		95EC9F2B1B00DFF00038D1ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EC9F291B00DFF00038D1ED /* LaunchScreen.xib */; };
@@ -31,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24E5490B1B018D1C005F93F1 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		24E5490C1B018D1C005F93F1 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		24E5490E1B018FFA005F93F1 /* CustomCellContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellContacts.h; sourceTree = "<group>"; };
+		24E5490F1B018FFA005F93F1 /* CustomCellContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellContacts.m; sourceTree = "<group>"; };
 		95A55BF51B012EDC00C9EFAF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		95A55BF81B01334800C9EFAF /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		95A55BF91B01334800C9EFAF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
@@ -39,8 +45,8 @@
 		95EC9F1C1B00DFF00038D1ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95EC9F1E1B00DFF00038D1ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		95EC9F1F1B00DFF00038D1ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		95EC9F211B00DFF00038D1ED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		95EC9F221B00DFF00038D1ED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		95EC9F211B00DFF00038D1ED /* MapKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapKitViewController.h; sourceTree = "<group>"; };
+		95EC9F221B00DFF00038D1ED /* MapKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapKitViewController.m; sourceTree = "<group>"; };
 		95EC9F251B00DFF00038D1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95EC9F271B00DFF00038D1ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95EC9F2A1B00DFF00038D1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -96,8 +102,12 @@
 			children = (
 				95EC9F1E1B00DFF00038D1ED /* AppDelegate.h */,
 				95EC9F1F1B00DFF00038D1ED /* AppDelegate.m */,
-				95EC9F211B00DFF00038D1ED /* ViewController.h */,
-				95EC9F221B00DFF00038D1ED /* ViewController.m */,
+				95EC9F211B00DFF00038D1ED /* MapKitViewController.h */,
+				95EC9F221B00DFF00038D1ED /* MapKitViewController.m */,
+				24E5490B1B018D1C005F93F1 /* ContactViewController.h */,
+				24E5490C1B018D1C005F93F1 /* ContactViewController.m */,
+				24E5490E1B018FFA005F93F1 /* CustomCellContacts.h */,
+				24E5490F1B018FFA005F93F1 /* CustomCellContacts.m */,
 				95A55BF81B01334800C9EFAF /* TableViewController.h */,
 				95A55BF91B01334800C9EFAF /* TableViewController.m */,
 				95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */,
@@ -240,8 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95EC9F231B00DFF00038D1ED /* ViewController.m in Sources */,
+				95EC9F231B00DFF00038D1ED /* MapKitViewController.m in Sources */,
+				24E5490D1B018D1C005F93F1 /* ContactViewController.m in Sources */,
 				95EC9F201B00DFF00038D1ED /* AppDelegate.m in Sources */,
+				24E549101B018FFA005F93F1 /* CustomCellContacts.m in Sources */,
 				95EC9F1D1B00DFF00038D1ED /* main.m in Sources */,
 				95A55BFA1B01334800C9EFAF /* TableViewController.m in Sources */,
 				95A55BF61B012EDC00C9EFAF /* Model.xcdatamodeld in Sources */,
