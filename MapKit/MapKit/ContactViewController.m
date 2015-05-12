@@ -8,83 +8,51 @@
 
 #import "ContactViewController.h"
 
-@interface ContactViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UISearchResultsUpdating>
+@interface ContactViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *Tableview;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchContacts;
-
-@property (nonatomic) NSMutableArray *arrayFromUser;
-@property NSMutableArray *arrayContacts;
-@property NSMutableArray *arrayAutocomplete;
-
+@property (weak, nonatomic) IBOutlet UITextField *textFiel;
+@property NSMutableArray *arrayNumber;
+@property NSMutableArray *arrayNames;
+@property NSMutableArray *autocompleteNumber;
+@property NSMutableArray *autocompleteNames;
 @end
 
 @implementation ContactViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initProperties];
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-//    tap.cancelsTouchesInView = NO;
-//    [self.view addGestureRecognizer:tap];
-}
--(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    self.arrayNumber = [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"3",@"4",@"5",@"6"]];
+    self.arrayNames = [[NSMutableArray alloc] initWithArray:@[@"aaaaaaa",@"bbbbbbb",@"ccccccc",@"ddddddd",@"eeeeeee",@"fffffff"]];
+    self.autocompleteNumber = [[NSMutableArray alloc] init];
+    self.autocompleteNames = [[NSMutableArray alloc] init];
+    [super viewDidLoad];
+
 
 }
--(void)initProperties{
-    self.arrayContacts = [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"3",@"4",@"5",@"6"]];
-    self.arrayAutocomplete = [[NSMutableArray alloc] init];
-}
-//AUTOCOMPLETE
+
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
-    NSLog(@"method autocomplete");
-    [self.arrayAutocomplete removeAllObjects];
-    NSArray *auxiliar = [NSArray arrayWithArray:self.arrayContacts];
-    for (NSString *curString in auxiliar) {
+    NSLog(@"----------------------------");
+
+    [self.autocompleteNumber removeAllObjects];
+    for(NSString *curString in self.arrayNumber) {
         NSRange substringRange = [curString rangeOfString:substring];
         if (substringRange.location == 0) {
-            [self.arrayAutocomplete addObject:curString];
+            [self.autocompleteNumber addObject:curString];
         }
     }
     [self.Tableview reloadData];
 }
 
-- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText
-{
-    NSString *name = @"";
-    NSString *firstLetter = @"";
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    self.Tableview.hidden = NO;
     
-    if (self.arrayAutocomplete.count > 0)
-        [self.arrayAutocomplete removeAllObjects];
-    
-    if ([searchText length] > 0)
-    {
-        for (int i = 0; i < [self.arrayContacts count] ; i = i+1)
-        {
-            name = [self.arrayContacts objectAtIndex:i];
-            
-            if (name.length >= searchText.length)
-            {
-                firstLetter = [name substringWithRange:NSMakeRange(0, [searchText length])];
-                //NSLog(@"%@",firstLetter);
-                
-                if( [firstLetter caseInsensitiveCompare:searchText] == NSOrderedSame )
-                {
-                    // strings are equal except for possibly case
-                    [self.arrayAutocomplete addObject: [self.arrayContacts objectAtIndex:i]];
-                    NSLog(@"=========> %@",self.arrayAutocomplete);
-                }
-            }
-        }
-    }
-    else
-    {
-        [self.arrayAutocomplete addObjectsFromArray:self.arrayContacts ];
-    }
-    
-    [self.Tableview reloadData];
+    NSString *substring = [NSString stringWithString:textField.text];
+    substring = [substring stringByReplacingCharactersInRange:range withString:string];
+    [self searchAutocompleteEntriesWithSubstring:substring];
+    NSLog(@"----------------------------");
+    return YES;
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -93,39 +61,21 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    NSLog(@"number sections");
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.arrayAutocomplete!=nil){
-        NSLog(@"number arrayauto");
-
-        return self.arrayAutocomplete.count;
-
-        
-    }
-    else{
-        NSLog(@"number arraycontact");
-
-        return self.arrayContacts.count;
-    }
-        //if (self.arrayFromUser.count != 0)
-        //return self.arrayFromUser.count;
-    //return 0;    return self.arrayContacts.count;
+//#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return self.autocompleteNumber.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    if (self.arrayAutocomplete!=nil) {
-        cell.textLabel.text = [self.arrayAutocomplete objectAtIndex:indexPath.row];
-
-    }
-    else{
-        cell.textLabel.text = [self.arrayContacts objectAtIndex:indexPath.row];
-    }
+    cell.textLabel.text = [self.arrayNumber objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.arrayNames objectAtIndex:indexPath.row];
+    cell.accessoryType = NO;
  // Configure the cell...
 
  return cell;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactViewController : UIViewController
+- (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring;
 
 @end
 //layer.cornerRadius
