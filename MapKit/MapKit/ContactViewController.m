@@ -8,9 +8,14 @@
 
 #import "ContactViewController.h"
 
-@interface ContactViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ContactViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UISearchResultsUpdating>
 @property (weak,nonatomic) IBOutlet UITableView *Tableview;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchContacts;
+
+@property (nonatomic) NSMutableArray *arrayFromUser;
 @property NSMutableArray *arrayContacts;
+@property NSMutableArray *arrayAutocomplete;
+
 @end
 
 @implementation ContactViewController
@@ -19,10 +24,65 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initProperties];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+//    tap.cancelsTouchesInView = NO;
+//    [self.view addGestureRecognizer:tap];
 }
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
 
+}
 -(void)initProperties{
     self.arrayContacts = [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"3",@"4",@"5",@"6"]];
+    self.arrayAutocomplete = [[NSMutableArray alloc] init];
+}
+//AUTOCOMPLETE
+- (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
+    NSLog(@"method autocomplete");
+    [self.arrayAutocomplete removeAllObjects];
+    NSArray *auxiliar = [NSArray arrayWithArray:self.arrayContacts];
+    for (NSString *curString in auxiliar) {
+        NSRange substringRange = [curString rangeOfString:substring];
+        if (substringRange.location == 0) {
+            [self.arrayAutocomplete addObject:curString];
+        }
+    }
+    [self.Tableview reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText
+{
+    NSString *name = @"";
+    NSString *firstLetter = @"";
+    
+    if (self.arrayAutocomplete.count > 0)
+        [self.arrayAutocomplete removeAllObjects];
+    
+    if ([searchText length] > 0)
+    {
+        for (int i = 0; i < [self.arrayContacts count] ; i = i+1)
+        {
+            name = [self.arrayContacts objectAtIndex:i];
+            
+            if (name.length >= searchText.length)
+            {
+                firstLetter = [name substringWithRange:NSMakeRange(0, [searchText length])];
+                //NSLog(@"%@",firstLetter);
+                
+                if( [firstLetter caseInsensitiveCompare:searchText] == NSOrderedSame )
+                {
+                    // strings are equal except for possibly case
+                    [self.arrayAutocomplete addObject: [self.arrayContacts objectAtIndex:i]];
+                    NSLog(@"=========> %@",self.arrayAutocomplete);
+                }
+            }
+        }
+    }
+    else
+    {
+        [self.arrayAutocomplete addObjectsFromArray:self.arrayContacts ];
+    }
+    
+    [self.Tableview reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,21 +93,41 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
+    NSLog(@"number sections");
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    if (self.arrayAutocomplete!=nil){
+        NSLog(@"number arrayauto");
+
+        return self.arrayAutocomplete.count;
+
+        
+    }
+    else{
+        NSLog(@"number arraycontact");
+
+        return self.arrayContacts.count;
+    }
+        //if (self.arrayFromUser.count != 0)
+        //return self.arrayFromUser.count;
+    //return 0;    return self.arrayContacts.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
- 
+    if (self.arrayAutocomplete!=nil) {
+        cell.textLabel.text = [self.arrayAutocomplete objectAtIndex:indexPath.row];
+
+    }
+    else{
+        cell.textLabel.text = [self.arrayContacts objectAtIndex:indexPath.row];
+    }
  // Configure the cell...
- 
+
  return cell;
  }
 

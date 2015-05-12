@@ -137,6 +137,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Tableview" destination="cOj-ys-AVd" id="uNG-vE-cXp"/>
+                        <outlet property="searchContacts" destination="OUq-nH-g3C" id="YgY-6k-Wjt"/>
                         <outlet property="searchDisplayController" destination="dVs-YQ-MjO" id="joL-Fs-Aa7"/>
                     </connections>
                 </viewController>
