@@ -118,7 +118,7 @@
 }
 
 
-- (IBAction)segmentedControl:(id)sender {
+/*- (IBAction)segmentedControl:(id)sender {
     switch (((UISegmentedControl *) sender).selectedSegmentIndex) {
         case 0:
             _mapa.mapType = MKMapTypeStandard;
@@ -132,7 +132,7 @@
         default:
             break;
     }
-}
+}*/
 
 
 

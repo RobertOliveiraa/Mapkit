@@ -38,15 +38,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" systemItem="add" id="ZzG-RM-0lM"/>
+                        <barButtonItem title="Item" systemItem="add" id="ZzG-RM-0lM">
+                            <connections>
+                                <segue destination="zwd-I4-JlK" kind="push" id="scs-Z7-mug"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem width="33.5" systemItem="fixedSpace" id="UN0-xe-hwt"/>
                         <barButtonItem systemItem="search" id="lWF-PL-Nq7">
                             <connections>
                                 <segue destination="YuO-ZV-oKZ" kind="push" id="lPQ-0d-HvC"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem title="Item" id="fTp-U2-rHK"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="dlQ-Es-6te"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapa" destination="pMx-eb-UJI" id="gMG-bT-YkP"/>
@@ -56,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1141.5" y="335.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Cadastro-->
         <scene sceneID="Lmz-Sh-W26">
             <objects>
-                <viewController id="zwd-I4-JlK" sceneMemberID="viewController">
+                <viewController title="Cadastro" id="zwd-I4-JlK" customClass="CadastroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Fy-6S-ELP"/>
                         <viewControllerLayoutGuide type="bottom" id="8jD-KZ-5MM"/>
@@ -67,9 +73,45 @@
                     <view key="view" contentMode="scaleToFill" id="9G5-77-reX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuR-VF-ycv">
+                                <rect key="frame" x="16" y="62" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-g8-ueA">
+                                <rect key="frame" x="111" y="58" width="248" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Telefone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeT-Qd-p7o">
+                                <rect key="frame" x="16" y="119" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wXZ-vL-Yxk">
+                                <rect key="frame" x="111" y="115" width="248" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="save" id="pLD-RR-2aT">
+                            <connections>
+                                <action selector="saveButtonClicked:" destination="zwd-I4-JlK" id="BPy-L0-Kmi"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="CAc-RD-E1M"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="CadNome" destination="XQe-g8-ueA" id="JSJ-UR-Zfp"/>
+                        <outlet property="CadTelefone" destination="wXZ-vL-Yxk" id="oi2-P7-nV2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOn-A7-Tp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
