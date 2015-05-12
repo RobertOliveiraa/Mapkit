@@ -118,5 +118,22 @@
 }
 
 
+/*- (IBAction)segmentedControl:(id)sender {
+    switch (((UISegmentedControl *) sender).selectedSegmentIndex) {
+        case 0:
+            _mapa.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            _mapa.mapType = MKMapTypeSatellite;
+            break;
+        case 2:
+            _mapa.mapType = MKMapTypeHybrid;
+            break;
+        default:
+            break;
+    }
+}*/
+
+
 
 @end
