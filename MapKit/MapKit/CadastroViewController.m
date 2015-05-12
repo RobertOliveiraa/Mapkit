@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.CadNome.text = self.cod.nome;
+    self.CadNome.text = self.cod.name;
     self.CadTelefone.text = self.cod.telefone;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -38,7 +38,7 @@
     if (!self.cod) {
         self.cod = [[CadastroStoreViewController sharedStore] createCadastroEditWithCode:self.CadNome.text andtelefone:self.CadTelefone.text];
     } else {
-        self.cod.nome = self.CadNome.text;
+        self.cod.name = self.CadNome.text;
         self.cod.telefone = self.CadTelefone.text;
         
     }

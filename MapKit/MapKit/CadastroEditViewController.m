@@ -1,5 +1,5 @@
 //
-//  CadastroEditViewController.m
+//  Entity.m
 //  MapKit
 //
 //  Created by Robert Pinto de Oliveira on 11/05/15.
@@ -8,15 +8,12 @@
 
 #import "CadastroEditViewController.h"
 
-@interface CadastroEditViewController ()
-
-@end
 
 @implementation CadastroEditViewController
 
 @dynamic id;
-@dynamic cod;
-@dynamic nome;
+@dynamic name;
 @dynamic telefone;
+@dynamic cod;
 
 @end
