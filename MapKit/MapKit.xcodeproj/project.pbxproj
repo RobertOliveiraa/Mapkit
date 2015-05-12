@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95A55BF61B012EDC00C9EFAF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */; };
+		95A55BFA1B01334800C9EFAF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A55BF91B01334800C9EFAF /* TableViewController.m */; };
 		95EC9F1D1B00DFF00038D1ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F1C1B00DFF00038D1ED /* main.m */; };
 		95EC9F201B00DFF00038D1ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F1F1B00DFF00038D1ED /* AppDelegate.m */; };
 		95EC9F231B00DFF00038D1ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EC9F221B00DFF00038D1ED /* ViewController.m */; };
@@ -29,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95A55BF51B012EDC00C9EFAF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		95A55BF81B01334800C9EFAF /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		95A55BF91B01334800C9EFAF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		95EC9F171B00DFF00038D1ED /* MapKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EC9F1B1B00DFF00038D1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95EC9F1C1B00DFF00038D1ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +98,9 @@
 				95EC9F1F1B00DFF00038D1ED /* AppDelegate.m */,
 				95EC9F211B00DFF00038D1ED /* ViewController.h */,
 				95EC9F221B00DFF00038D1ED /* ViewController.m */,
+				95A55BF81B01334800C9EFAF /* TableViewController.h */,
+				95A55BF91B01334800C9EFAF /* TableViewController.m */,
+				95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */,
 				95EC9F241B00DFF00038D1ED /* Main.storyboard */,
 				95EC9F271B00DFF00038D1ED /* Images.xcassets */,
 				95EC9F291B00DFF00038D1ED /* LaunchScreen.xib */,
@@ -235,6 +243,8 @@
 				95EC9F231B00DFF00038D1ED /* ViewController.m in Sources */,
 				95EC9F201B00DFF00038D1ED /* AppDelegate.m in Sources */,
 				95EC9F1D1B00DFF00038D1ED /* main.m in Sources */,
+				95A55BFA1B01334800C9EFAF /* TableViewController.m in Sources */,
+				95A55BF61B012EDC00C9EFAF /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +451,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95A55BF41B012EDC00C9EFAF /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95A55BF51B012EDC00C9EFAF /* Model.xcdatamodel */,
+			);
+			currentVersion = 95A55BF51B012EDC00C9EFAF /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 95EC9F0F1B00DFF00038D1ED /* Project object */;
 }
