@@ -40,6 +40,10 @@
     cell.detailTextLabel.text = teste.telefone;
     return cell;
 }
+- (IBAction)cancelButtonClicked:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction)saveButtonClicked:(id)sender {
     [[MapKitStore sharedStore]
