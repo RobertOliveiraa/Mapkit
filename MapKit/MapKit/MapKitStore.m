@@ -25,18 +25,21 @@
         sharedStore = [[self alloc] initPrivate];
         sharedStore.managedObjectContext = appDelegate.managedObjectContext;
     }
+    
     return sharedStore;
 }
 
 - (instancetype)initPrivate {
     self = [super init];
     return self;
+    
 }
 
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"Singleton"
                                    reason:@"Use +[TesteStore sharedStore]"
                                  userInfo:nil];
+    
 }
 
 
@@ -56,6 +59,7 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Could not save %@, %@", error, error.userInfo);
     }
+    [self loadAllContacts];
 }
 
 - (void) setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext{
@@ -83,6 +87,7 @@
         
         self.privateItems = [NSMutableArray arrayWithArray:result];
     }
+    [self gatAllContacts];
     
 }
 - (NSArray *)gatAllContacts{

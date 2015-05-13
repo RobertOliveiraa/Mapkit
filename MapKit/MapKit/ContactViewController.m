@@ -7,7 +7,7 @@
 //
 
 #import "ContactViewController.h"
-
+#import "MapKitStore.h"
 @interface ContactViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *Tableview;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchContacts;
@@ -22,18 +22,19 @@
 
 - (void)viewDidLoad {
     // Do any additional setup after loading the view.
-    self.arrayNumber = [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"3",@"4",@"5",@"6"]];
+    self.arrayNumber = [[NSMutableArray alloc] initWithArray:@[@"aaaaaaa",@"bbbbbbb",@"ccccccc",@"ddddddd",@"eeeeeee",@"fffffff"]];
+
+    //self.arrayNumber = [[NSMutableArray alloc] initWithArray:    [[MapKitStore sharedStore] gatAllContacts]];
     self.arrayNames = [[NSMutableArray alloc] initWithArray:@[@"aaaaaaa",@"bbbbbbb",@"ccccccc",@"ddddddd",@"eeeeeee",@"fffffff"]];
     self.autocompleteNumber = [[NSMutableArray alloc] init];
     self.autocompleteNames = [[NSMutableArray alloc] init];
     [super viewDidLoad];
 
-
 }
 
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
     NSLog(@"----------------------------");
-
+    
     [self.autocompleteNumber removeAllObjects];
     for(NSString *curString in self.arrayNumber) {
         NSRange substringRange = [curString rangeOfString:substring];
@@ -67,7 +68,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.autocompleteNumber.count;
+    return self.arrayNumber.count;
 }
 
 
@@ -75,11 +76,37 @@
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = [self.arrayNumber objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [self.arrayNames objectAtIndex:indexPath.row];
+    if([self.autocompleteNumber containsObject:[self.arrayNumber objectAtIndex:indexPath.row]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     cell.accessoryType = NO;
  // Configure the cell...
 
  return cell;
  }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.accessoryType == UITableViewCellAccessoryNone)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.autocompleteNumber addObject:[self.arrayNumber objectAtIndex:indexPath.row]];
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.autocompleteNumber removeObject:[self.arrayNumber objectAtIndex:indexPath.row]];
+
+    }
+    NSLog(@"\n\n\n%@", self.autocompleteNumber);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
 /*
