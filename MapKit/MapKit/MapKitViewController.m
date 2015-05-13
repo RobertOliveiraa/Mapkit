@@ -57,6 +57,14 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300);
     [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
     
+    //CGPoint touchPoint = locationInView:self.mapa];
+    //CLLocationCoordinate2D touchMapCoordinate = [self.mapa convertPoint:touchPoint toCoordinateFromView:self.mapa];
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = userLocation.coordinate;;
+    point.title = @"Where am I?";
+    point.subtitle = @"I'm here!!!";
+
+    
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.latitude);
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.longitude);
 }
@@ -97,7 +105,7 @@
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapa];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapa convertPoint:touchPoint toCoordinateFromView:self.mapa];
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = touchMapCoordinate;
+    //point.coordinate = userLocation.coordinate;;
     point.title = @"Where am I?";
     point.subtitle = @"I'm here!!!";
     //for (id annotation in self.mapa.annotations) {
