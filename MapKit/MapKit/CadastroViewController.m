@@ -11,7 +11,8 @@
 
 @interface CadastroViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property NSMutableArray *autocompleteNumber;
+@property MapKit *array;
 @end
 
 @implementation CadastroViewController
@@ -39,10 +40,39 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell= [tableView dequeueReusableCellWithIdentifier:@"cell"];
     MapKit *teste = [[[MapKitStore sharedStore] gatAllContacts] objectAtIndex:indexPath.row];
+    self.array = teste;
     cell.textLabel.text = teste.name;
     cell.detailTextLabel.text = teste.telefone;
+    if([self.autocompleteNumber containsObject:teste.telefone])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    cell.accessoryType = NO;
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.accessoryType == UITableViewCellAccessoryNone)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.autocompleteNumber addObject:self.array];
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.autocompleteNumber removeObject:self.array];
+        
+    }
+    NSLog(@"\n\n\n%@", self.autocompleteNumber);
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (IBAction)cancelButtonClicked:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
