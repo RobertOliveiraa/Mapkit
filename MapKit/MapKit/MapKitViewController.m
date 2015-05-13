@@ -40,13 +40,6 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300);
     [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
-    
-    //CGPoint touchPoint = locationInView:self.mapa];
-    //CLLocationCoordinate2D touchMapCoordinate = [self.mapa convertPoint:touchPoint toCoordinateFromView:self.mapa];
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = userLocation.coordinate;;
-    point.title = @"Where am I?";
-    point.subtitle = @"I'm here!!!";
 
     
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.latitude);
@@ -54,19 +47,19 @@
     //    //Por pino no mapa
     //    //for (int i = 0; i < results.count; i++) {
     //    //adiciona um pin em uma certa latitude e longitude.
-        CLLocationCoordinate2D annotationCoord;
-    //
-    //    //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
-    //    //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
-        annotationCoord.latitude =  userLocation.location.coordinate.latitude;
-        annotationCoord.longitude =  userLocation.location.coordinate.longitude;
-        MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-        annotationPoint.coordinate = annotationCoord;
-    //    //annotationPoint.title = self.title;
-    //    //annotationPoint.subtitle = self.subtitle;
-    //
-        [self.mapa addAnnotation:annotationPoint];
-    //        //    }
+//        CLLocationCoordinate2D annotationCoord;
+//    //
+//    //    //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
+//    //    //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
+//        annotationCoord.latitude =  userLocation.location.coordinate.latitude;
+//        annotationCoord.longitude =  userLocation.location.coordinate.longitude;
+//        MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+//        annotationPoint.coordinate = annotationCoord;
+//    annotationPoint.title = self.title;
+//    //annotationPoint.subtitle = self.subtitle;
+//    //
+//        [self.mapa addAnnotation:annotationPoint];
+//    //        //    }
 
     
 }
@@ -75,6 +68,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)pinButtonClicked:(id)sender {
+    
+    }
+
 /*-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
  {
  CGPoint pt = [[touches anyObject]locationInView:self.mapa];
@@ -107,7 +105,7 @@
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapa];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapa convertPoint:touchPoint toCoordinateFromView:self.mapa];
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    //point.coordinate = userLocation.coordinate;;
+    point.coordinate = touchMapCoordinate;
     point.title = @"Where am I?";
     point.subtitle = @"I'm here!!!";
     //for (id annotation in self.mapa.annotations) {
