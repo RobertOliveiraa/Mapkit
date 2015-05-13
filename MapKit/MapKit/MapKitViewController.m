@@ -28,22 +28,22 @@
     self.mapa.showsUserLocation = YES;
     [self.locationManager requestWhenInUseAuthorization];
     
-    //Por pino no mapa
-    //for (int i = 0; i < results.count; i++) {
-    //adiciona um pin em uma certa latitude e longitude.
-    CLLocationCoordinate2D annotationCoord;
-
-    //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
-    //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
-    annotationCoord.latitude = 50.44444;
-    annotationCoord.longitude = -3.44545;
-    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-    annotationPoint.coordinate = annotationCoord;
-    //annotationPoint.title = self.title;
-    //annotationPoint.subtitle = self.subtitle;
-
-    [self.mapa addAnnotation:annotationPoint];
-        //    }
+//    //Por pino no mapa
+//    //for (int i = 0; i < results.count; i++) {
+//    //adiciona um pin em uma certa latitude e longitude.
+//    CLLocationCoordinate2D annotationCoord;
+//
+//    //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
+//    //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
+//    annotationCoord.latitude = 50.44444;
+//    annotationCoord.longitude = -3.44545;
+//    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+//    annotationPoint.coordinate = annotationCoord;
+//    //annotationPoint.title = self.title;
+//    //annotationPoint.subtitle = self.subtitle;
+//
+//    [self.mapa addAnnotation:annotationPoint];
+//        //    }
     
     //[self.locationManager requestAlwaysAuthorization];
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
