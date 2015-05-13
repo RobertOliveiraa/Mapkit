@@ -25,7 +25,6 @@
         sharedStore = [[self alloc] initPrivate];
         sharedStore.managedObjectContext = appDelegate.managedObjectContext;
     }
-    
     return sharedStore;
 }
 

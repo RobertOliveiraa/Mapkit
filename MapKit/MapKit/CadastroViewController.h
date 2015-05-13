@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MapKit.h"
 
-@interface CadastroViewController : UIViewController <UINavigationControllerDelegate>
+@interface CadastroViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) MapKit *cod;
 @property (weak, nonatomic) IBOutlet UITextField *CadNome;

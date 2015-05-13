@@ -10,6 +10,7 @@
 #import "MapKitStore.h"
 
 @interface CadastroViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
