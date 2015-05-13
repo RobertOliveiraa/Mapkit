@@ -20,6 +20,10 @@
     // Do any additional setup after loading the view.
     self.CadNome.text = self.cod.name;
     self.CadTelefone.text = self.cod.telefone;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -42,6 +46,12 @@
      andName:self.CadNome.text];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)dismissKeyboard {
+    [self.CadNome resignFirstResponder];
+    [self.CadTelefone resignFirstResponder];
+}
+
 /*
 #pragma mark - Navigation
 
