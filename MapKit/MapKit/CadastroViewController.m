@@ -48,16 +48,11 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (textField == self.CadTelefone) {
-        NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789.-"] invertedSet];
-        NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
-        
-        return [string isEqualToString:filtered];
-    }
-    
-    return YES;
+- (void)dismissKeyboard {
+    [self.CadNome resignFirstResponder];
+    [self.CadTelefone resignFirstResponder];
 }
+
 /*
 #pragma mark - Navigation
 

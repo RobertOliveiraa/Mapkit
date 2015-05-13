@@ -170,7 +170,7 @@
                     <connections>
                         <outlet property="CadNome" destination="XQe-g8-ueA" id="JSJ-UR-Zfp"/>
                         <outlet property="CadTelefone" destination="wXZ-vL-Yxk" id="oi2-P7-nV2"/>
-                        <outlet property="tableView" destination="HWe-lk-d3V" id="kFL-rv-htT"/>
+                        <outlet property="tableView" destination="DWp-vr-j3X" id="lLL-BT-eBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOn-A7-Tp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
