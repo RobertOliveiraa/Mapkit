@@ -41,11 +41,8 @@
                     <navigationItem key="navigationItem" id="dlQ-Es-6te">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="JMh-Xd-LDO">
-                            <rect key="frame" x="8" y="8" width="317" height="29"/>
+                            <rect key="frame" x="83" y="8" width="209" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="28" id="EJ0-2m-mox"/>
-                            </constraints>
                             <segments>
                                 <segment title="Standard"/>
                                 <segment title="Satellite"/>

@@ -39,8 +39,8 @@
 
 //Zoom
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-   // MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500);
-    //[self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
+    [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
     
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.latitude);
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.longitude);
@@ -51,9 +51,10 @@
         //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
         //    }
 
-    CLLocationCoordinate2D annotationCoord;
-    annotationCoord = userLocation.location.coordinate;
+    //annotationCoord;
+    CLLocationCoordinate2D annotationCoord = userLocation.location.coordinate;
     MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+   
     annotationPoint.coordinate = annotationCoord;
     annotationPoint.title = @"Title";
     annotationPoint.subtitle = @"Subtitle";
