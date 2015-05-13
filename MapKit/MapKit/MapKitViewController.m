@@ -27,6 +27,7 @@
     //localizacao
     self.mapa.showsUserLocation = YES;
     [self.locationManager requestWhenInUseAuthorization];
+    self.mapa.zoomEnabled = YES;
     
     
     //[self.locationManager requestAlwaysAuthorization];
@@ -38,28 +39,26 @@
 
 //Zoom
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 300, 300);
-    [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
+   // MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 500, 500);
+    //[self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
     
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.latitude);
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.longitude);
-    //    //Por pino no mapa
-    //    //for (int i = 0; i < results.count; i++) {
-    //    //adiciona um pin em uma certa latitude e longitude.
-        CLLocationCoordinate2D annotationCoord;
-    //
-    //    //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
-    //    //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
-        annotationCoord.latitude =  userLocation.location.coordinate.latitude;
-        annotationCoord.longitude =  userLocation.location.coordinate.longitude;
-        MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-        annotationPoint.coordinate = annotationCoord;
-    //    //annotationPoint.title = self.title;
-    //    //annotationPoint.subtitle = self.subtitle;
-    //
-        [self.mapa addAnnotation:annotationPoint];
-    //        //    }
+        //Por pino no mapa
+        //for (int i = 0; i < results.count; i++) {
+        //adiciona um pin em uma certa latitude e longitude.
+        //CLLocationDegrees lat = [[results[i] valueForKey:@"latitude"] doubleValue];
+        //CLLocationDegrees longi = [[results[i] valueForKey:@"longitude"] doubleValue];
+        //    }
 
+    CLLocationCoordinate2D annotationCoord;
+    annotationCoord = userLocation.location.coordinate;
+    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+    annotationPoint.coordinate = annotationCoord;
+    annotationPoint.title = @"Title";
+    annotationPoint.subtitle = @"Subtitle";
+    
+    [self.mapa addAnnotation:annotationPoint];
     
 }
 
