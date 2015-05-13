@@ -7,9 +7,9 @@
 //
 
 #import "MapKitViewController.h"
-
+#import "CadastroViewController.h"
 @interface MapKitViewController ()
-
+@property (nonatomic) CLLocationCoordinate2D teste;
 @end
 
 @implementation MapKitViewController
@@ -55,12 +55,11 @@
     //annotationCoord;
     CLLocationCoordinate2D annotationCoord = userLocation.location.coordinate;
     MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
-   
     annotationPoint.coordinate = annotationCoord;
     annotationPoint.title = @"Title";
     annotationPoint.subtitle = @"Subtitle";
     
-    [self.mapa addAnnotation:annotationPoint];
+    //[self.mapa addAnnotation:annotationPoint];
     
 }
 
@@ -162,7 +161,6 @@
 }*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
 }
 
 @end

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MapKit.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface CadastroViewController : UIViewController <UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) MapKit *cod;
 @property (weak, nonatomic) IBOutlet UITextField *CadNome;
 @property (weak, nonatomic) IBOutlet UITextField *CadTelefone;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @end
