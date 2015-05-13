@@ -40,6 +40,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dlQ-Es-6te">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="wht-blank" id="HMw-eW-Bqs"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="JMh-Xd-LDO">
                             <rect key="frame" x="83" y="8" width="209" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -294,6 +295,9 @@
             <point key="canvasLocation" x="634.5" y="341.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wht-blank" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

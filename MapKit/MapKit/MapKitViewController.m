@@ -41,6 +41,7 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
     [self.mapa setRegion:[self.mapa regionThatFits:region] animated:YES];
+
     
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.latitude);
     NSLog(@"\n\ncurrent: %f", userLocation.location.coordinate.longitude);
@@ -67,6 +68,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)pinButtonClicked:(id)sender {
+    
+    }
+
 /*-(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
  {
  CGPoint pt = [[touches anyObject]locationInView:self.mapa];
